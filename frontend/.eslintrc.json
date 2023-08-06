@@ -16,7 +16,14 @@
     "plugins": [
         "react"
     ],
-    "rules": {
-        "linebreak-style": "off"
-    }
+
+        "rules": {
+           "linebreak-style": "off"
+        }
+      
+      
 }
+
+
+
+  
