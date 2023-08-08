@@ -1,4 +1,5 @@
 const multer = require('multer');
+const sharp = require('sharp')
 
 const MIME_TYPES = {
   'image/jpg': 'jpg',
@@ -15,6 +16,7 @@ const storage = multer.diskStorage({
     const extension = MIME_TYPES[file.mimetype];
     callback(null, name.split('.').join('').slice(0,-extension.length) + Date.now() + '.' + extension);
   }
+
 });
 
-module.exports = multer({storage: storage}).single('image');
+module.exports = multer({storage}).single('image');
