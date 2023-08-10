@@ -138,6 +138,9 @@ exports.getBestRated = (req, res, next) => {
 exports.rateBook = (req, res, next) => {
   const rating = JSON.parse(req.body.rating);
 
+//   if (!req.auth.userId) {
+//     return res.status(404).json({ message: "user not found." });
+//   }
 
   Book.findOne({ _id: req.params.id })
   .then((book) => {
@@ -145,6 +148,7 @@ exports.rateBook = (req, res, next) => {
       if (!book) {
         return res.status(404).json({ message: "Book not found." });
       }
+     
       //check if book already rated
       const alreadyRated = book.ratings.find(
         (rate) => rate.userId === req.auth.userId

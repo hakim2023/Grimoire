@@ -5,8 +5,11 @@ const app = express();
 const booksRoutes = require('./routes/books');
 const userRoutes = require('./routes/user');
 const path = require('path');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://hakim1:openclassrooms-test@cluster0.o4dowfu.mongodb.net/grimoire?retryWrites=true&w=majority',
+const mongoURI = process.env.MONGODB_URI;
+
+mongoose.connect(mongoURI,
 { useNewUrlParser: true,
     useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
