@@ -6,7 +6,7 @@ const booksRoutes = require('./routes/books');
 const userRoutes = require('./routes/user');
 const path = require('path');
 
-mongoose.connect('mongodb+srv://hakim1:26632662@cluster0.o4dowfu.mongodb.net/grimoire?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://hakim1:openclassrooms-test@cluster0.o4dowfu.mongodb.net/grimoire?retryWrites=true&w=majority',
 { useNewUrlParser: true,
     useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
