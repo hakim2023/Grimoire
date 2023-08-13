@@ -1,8 +1,14 @@
 const jwt = require('jsonwebtoken');
+
+require('dotenv').config();
+const secretToken = process.env.SECRET_TOKEN;
+
 module.exports = (req , res , next)=> {
    try{
+         //la fonction split pour enlever le mot Bearer de headers.authorization
          const token= req.headers.authorization.split(' ')[1];
-         const decodedToken = jwt.verify(token , 'RANDOM_TOKEN_SECRET');
+         //verify pour décoder le token. 
+         const decodedToken = jwt.verify(token , secretToken);
          const userId = decodedToken.userId;
          req.auth = {
             userId:userId

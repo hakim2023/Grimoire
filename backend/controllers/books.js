@@ -1,7 +1,6 @@
 const Book = require("../models/Book");
 const fs = require('fs');
 
-const sharp = require('sharp')
 
 
 exports.createBook = (req,res,next) => {
